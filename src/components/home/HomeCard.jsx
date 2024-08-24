@@ -1,9 +1,9 @@
 import React from 'react'
 import { BiSolidUpArrow } from "react-icons/bi";
 
-const HomeCard = ({title, value, valuePercentage, bgImg}) => {
+const HomeCard = ({title, value, valuePercentage, chart}) => {
   return (
-    <div className='bg-white shadow-xl rounded-[12px] flex flex-col justify-between'>
+    <div className='bg-white shadow-xl rounded-[12px] flex flex-col justify-between overflow-hidden'>
         <div className="flex justify-between gap-6 px-4 md:px-6 pt-4">
             <div>
                 <h3 className="text-[#112c5f] font-semibold text-sm md:text-base leading-none">
@@ -22,7 +22,7 @@ const HomeCard = ({title, value, valuePercentage, bgImg}) => {
             </div>
         </div>
         <div className='w-full'>
-            <img src={bgImg} alt="img" className='w-full' />
+            {chart}
         </div>
     </div>
   )

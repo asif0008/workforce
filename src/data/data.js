@@ -139,10 +139,10 @@ export const batteryLevelData = [
   {
     name: "High",
     value: 50,
-    color: "rgba(176, 4, 138, 1)",
+    fill: "rgba(176, 4, 138, 1)",
   },
-  { name: "Medium", value: 76, color: "rgba(231, 93, 80, 1)" },
-  { name: "Low", value: 26, color: "rgba(241, 130, 38, 1)" },
+  { name: "Medium", value: 76, fill: "rgba(231, 93, 80, 1)" },
+  { name: "Low", value: 26, fill: "rgba(241, 130, 38, 1)" },
 ];
 export const nfcTagsData = [
   {
@@ -747,7 +747,7 @@ export const subscriptionHistoryData = [
   },
   {
     _id: '789789jk',
-    date: '01 August 2024',
+    date: '01 Aug 2024',
     plan: 'Standard',
     amount: '19.99',
     status: 'canceled',
@@ -755,7 +755,7 @@ export const subscriptionHistoryData = [
   },
   {
     _id: '101010ab',
-    date: '12 September 2024',
+    date: '12 Sept 2024',
     plan: 'Basic',
     amount: '9.99',
     status: 'active',
@@ -827,5 +827,121 @@ export const planCards = [
           "Perfect for individuals looking to explore our content without committing to a higher tier. Enjoy standard quality streaming and a variety of basic features.",
       bg: "linear-gradient(180deg, #FFB827 0%, #EE4967 100%)",
       btnBg: "linear-gradient(180deg, #FFC24A 0%, #EF4C66 161.43%)",
+  },
+];
+export const geofencingListData = [
+  {
+    _id: "64d6hbn1loopf1mdvvak8yt01",
+    geofenceName: "Workforce Project Number 1",
+    startDate: "06 June 2024 - 12:00 PM",
+    dueDate: "24 June 2024 - 12:00 PM",
+    type: "Polygon",
+    project: "NA",
+    status: "active",
+    action: ""
+  },
+  {
+    _id: "64d6hbn2loopf1mdvvak8yt02",
+    geofenceName: "Workforce Project Number 2",
+    startDate: "10 July 2024 - 10:00 AM",
+    dueDate: "20 July 2024 - 10:00 AM",
+    type: "Circle",
+    project: "Site A",
+    status: "completed",
+    action: "",
+  },
+  {
+    _id: "64d6hbn3loopf1mdvvak8yt03",
+    geofenceName: "Workforce Project Number 3",
+    startDate: "01 Aug 2024 - 08:00 AM",
+    dueDate: "15 Aug 2024 - 05:00 PM",
+    type: "Polygon",
+    project: "Site B",
+    status: "inactive",
+    action: ""
+  },
+  {
+    _id: "64d6hbn4loopf1mdvvak8yt04",
+    geofenceName: "Workforce Project Number 4",
+    startDate: "15 Sept 2024 - 02:00 PM",
+    dueDate: "30 Sept 2024 - 02:00 PM",
+    type: "Rectangle",
+    project: "Site C",
+    status: "active",
+    action: ""
+  }
+];
+
+export const trackerConnectivityData = [
+  {
+    name: 'Connected', value: 59, fill: 'rgba(191, 0, 0, 1)'
+  },
+  {
+    name: 'Not Connected', value: 41, fill: 'rgba(255, 191, 191, 1)'
+  },
+]
+export const vehiclesProfileData = [
+  {
+    name: 'Connected', value: 90, fill: 'rgba(113, 41, 211, 1)'
+  },
+  {
+    name: 'Not Connected', value: 85, fill: 'rgba(80, 0, 187, 1)'
+  },
+  {
+    name: 'Not Connected>15 days', value: 85, fill: 'rgba(63, 37, 98, 1)'
+  },
+  {
+    name: 'Not Connected>15 days', value: 85, fill: 'rgba(219, 191, 255, 1)'
+  },
+]
+
+export const usersViolationData = [
+  {
+    violationType: 'Forgot Badge',
+    dateTime: '4 May 2023 - 09:30 AM',
+    workforce: 'MKS',
+    contractor: 'Enjaz',
+    nationality: 'Saudia',
+    plateNumber: 'VLJ 3568',
+  },
+  {
+    violationType: 'Speeding',
+    dateTime: '10 June 2023 - 02:15 PM',
+    workforce: 'ABC Corp',
+    contractor: 'Omega',
+    nationality: 'UAE',
+    plateNumber: 'AER 1234',
+  },
+  {
+    violationType: 'Unauthorized Entry',
+    dateTime: '21 July 2023 - 11:00 AM',
+    workforce: 'XYZ Ltd',
+    contractor: 'Delta',
+    nationality: 'India',
+    plateNumber: 'QWE 5678',
+  },
+  {
+    violationType: 'Parking Violation',
+    dateTime: '15 August 2023 - 05:45 PM',
+    workforce: 'DigiTech',
+    contractor: 'Beta',
+    nationality: 'Pakistan',
+    plateNumber: 'XYZ 9876',
+  },
+  {
+    violationType: 'Forgot Helmet',
+    dateTime: '3 September 2023 - 08:30 AM',
+    workforce: 'SafeHands',
+    contractor: 'Alpha',
+    nationality: 'Jordan',
+    plateNumber: 'LMN 2468',
+  },
+  {
+    violationType: 'Incorrect PPE',
+    dateTime: '12 October 2023 - 01:20 PM',
+    workforce: 'CoreSafety',
+    contractor: 'Sigma',
+    nationality: 'Egypt',
+    plateNumber: 'OPQ 1357',
   },
 ];

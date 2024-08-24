@@ -5,8 +5,8 @@ const WorkforceTotal = ({title, counts, data}) => {
   return (
     <>
         <div className="flex items-center justify-between mt-4">
-            <h4 className="text-base md:text-[18px] text-[#11111199]">{title}</h4>
-            <h4 className="text-base md:text-[18px] text-[#11111199]">{counts}</h4>
+            <h4 className="text-sm sm:text-base md:text-[18px] text-[#11111199]">{title}</h4>
+            <h4 className="text-sm sm:text-base md:text-[18px] text-[#11111199]">{counts}</h4>
         </div>
         {data.map((workforce, i) => (
             <div className="flex items-center justify-between bg-[#7bc0f726] rounded-md p-4 mt-4" key={i}>

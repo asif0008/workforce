@@ -11,8 +11,9 @@ import EditIcon from "../../../assets/svgs/EditIcon";
 import { useState } from "react";
 import Modal from "../../../components/modals/Modal";
 import EditProject from "./EditProject";
+import { confirmAlert } from "react-confirm-alert";
 
-const columns = (modalOpenHandler,navigate) => [
+const columns = (modalOpenHandler,navigate, deleteHandler) => [
   {
     name: "Project Name",
     cell: (row) => (
@@ -100,7 +101,7 @@ const columns = (modalOpenHandler,navigate) => [
         <div className="cursor-pointer" onClick={() => modalOpenHandler('edit')}>
           <EditIcon />
         </div>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer" onClick={() => deleteHandler()}>
           <DeleteIcon />
         </div>
       </div>
@@ -115,11 +116,25 @@ const Projects = () => {
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
   
-  const modalOpenHandler = (modalType) => {
-    setModal(modalType)
-  }
-  const modalCloseHandler = () => {
-    setModal(false)
+  const modalOpenHandler = modalType => setModal(modalType)
+  const modalCloseHandler = () => setModal(false)
+
+  const deleteHandler = () => {
+    confirmAlert({
+      title: 'Delete Project',
+      message: 'Are you sure, you want to delete the project?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            console.log("project deleted")
+          }
+        },
+        {
+          label: 'No'
+        }
+      ]
+    })
   }
 
   return (
@@ -133,20 +148,20 @@ const Projects = () => {
             <AddIcon />
           </Link>
           <div className="cursor-pointer">
-            <DeleteIcon />
+            <DeleteIcon /> 
           </div>
         </div>
       </div>
       <div className="mt-5">
         <DataTable
-          columns={columns(modalOpenHandler,navigate)}
+          columns={columns(modalOpenHandler,navigate, deleteHandler)}
           data={projectsData}
           selectableRows
           selectableRowsHighlight
           customStyles={tableStyles}
           pagination
           fixedHeader
-          fixedHeaderScrollHeight="70vh"
+          fixedHeaderScrollHeight="100vh"
         />
       </div>
       {modal === 'edit' && (

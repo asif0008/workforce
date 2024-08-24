@@ -10,12 +10,9 @@ import AddNewScorecard from './AddNewScorecard'
 
 const ScoreCard = () => {
   const [modal, setModal] = useState(false);
-  const modalOpenHandler = (type) => {
-    setModal(type)
-  }
-  const modalCloseHandler = () => {
-    setModal(false)
-  }
+  const modalOpenHandler = (type) => setModal(type)
+  const modalCloseHandler = () => setModal(false)
+  
   return (
     <div className='bg-white rounded-[15px] p-4 lg:p-6'>
       <div className="flex items-center justify-between">

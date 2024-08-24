@@ -2,6 +2,8 @@ import { Suspense, lazy } from "react";
 import "./index.css";
 import 'leaflet/dist/leaflet.css';
 import "leaflet-draw/dist/leaflet.draw.css";
+import 'react-datepicker/dist/react-datepicker.css';
+import "react-confirm-alert/src/react-confirm-alert.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,7 +35,8 @@ const Geofence = lazy(() => import("./pages/user/maps/geofence/Geofence"));
 const Vehicles = lazy(() => import("./pages/user/vehicles/Vehicles"));
 const Users = lazy(() => import("./pages/user/users/Users"));
 const Sensors = lazy(() => import("./pages/user/sensors/Sensors"));
-const Violations = lazy(() => import("./pages/user/violations/Violations"));
+const UsersViolations = lazy(() => import("./pages/user/violations/UsersViolations"));
+const VehiclesViolations = lazy(() => import("./pages/user/violations/VehiclesViolations"));
 const ScoreCard = lazy(() => import("./pages/user/scoreCard/ScoreCard"));
 const Plans = lazy(() => import("./pages/user/plansAndPricing/Plans"));
 const Transactions = lazy(() =>
@@ -73,7 +76,8 @@ function App() {
             <Route path="users" element={<Users />} />
             <Route path="users/:id" element={<UserDetail />} />
             <Route path="sensors" element={<Sensors />} />
-            <Route path="violations" element={<Violations />} />
+            <Route path="users-violation" element={<UsersViolations />} />
+            <Route path="vehicles-violation" element={<VehiclesViolations />} />
             <Route path="score-card" element={<ScoreCard />} />
             <Route path="plans" element={<Plans />} />
             <Route path="transactions" element={<Transactions />} />

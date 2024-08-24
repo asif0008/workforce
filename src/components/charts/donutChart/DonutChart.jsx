@@ -42,7 +42,7 @@ const DonutChart = ({ data }) => {
                   <Label
                     value={`${entry.value}%`}
                     position={"insideTopRight"}
-                    color="#000"
+                    fill="#fff"
                     fontSize={'10px'}
                   />
                 </React.Fragment>

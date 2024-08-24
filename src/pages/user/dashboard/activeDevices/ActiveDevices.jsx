@@ -21,7 +21,7 @@ const ActiveDevices = () => {
           <BarChartComponent data={barLineData} />
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 gap-4 lg:gap-6 xl:gap-[40px] mt-4 lg:mt-6 xl:mt-[40px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 xl:gap-[40px] mt-4 lg:mt-6 xl:mt-[40px]">
         <ChartColumn title="NFC Tags" subTitle="Session by Device">
           <DonutChart data={activeDeviceNfcData} />
         </ChartColumn>
@@ -40,10 +40,10 @@ export default ActiveDevices;
 
 const ChartColumn = ({ title, subTitle, children }) => {
   return (
-    <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md">
+    <div className="p-4 md:p-5 bg-white rounded-[15px] drop-shadow-md h-[400px] sm:h-auto">
       <h3 className="text-base md:text-[20px] font-semibold">{title}</h3>
       <p className="text-base font-light text-[#717579]">{subTitle}</p>
-      <div className="mt-6 flex flex-col items-center justify-center h-[180px] lg:h-[60%]">
+      <div className="mt-14 md:mt-6 flex flex-col items-center justify-center h-[180px] lg:h-[60%]">
         {children}
       </div>
     </div>

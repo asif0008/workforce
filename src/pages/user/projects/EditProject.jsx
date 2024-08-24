@@ -29,7 +29,7 @@ const users = [
 
 const EditProject = ({ onClose }) => {
   return (
-    <form className="mt-4 md:mt-6 lg:mt-8 grid lg:grid-cols-12 gap-4">
+    <form className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-4">
       <div className="lg:col-span-4">
         <Input
           label="Project Name"

@@ -28,7 +28,7 @@ const Dropdown = ({ options, defaultText = "Select", onSelect }) => {
     <div className="relative w-full" ref={dropdownRef}>
       <button
         type="button"
-        className="w-full bg-[#7bc0f726] border border-[#e2e5ff] flex items-center justify-between rounded-[14px] h-[60px] p-4 text-sm md:text-base text-[#111111e4]"
+        className="w-full bg-[#7bc0f726] border border-[#e2e5ff] flex items-center justify-between rounded-[14px] h-[50px] sm:h-[60px] p-4 text-sm md:text-base text-[#111111e4]"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-sm">

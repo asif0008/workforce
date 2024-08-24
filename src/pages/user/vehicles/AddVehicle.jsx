@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import CameraIcon from "../../../assets/svgs/vehicles/CameraIcon";
-import profile from "../../../assets/images/header/profilepic.webp";
+import profile from "../../../assets/images/vehicles/vehicle.png";
 import Dropdown from "../../../components/shared/dropdown/Dropdown";
 import { brandOptions } from "../../../data/data";
 import Input from "../../../components/auth/Input";
 import Button from "../../../components/shared/button/Button";
 
-const AddVehicle = ({onClose}) => {
+const AddVehicle = ({ onClose }) => {
   const [imgSrc, setImgSrc] = useState("");
 
   const imgSrcHandler = (e) => {
@@ -24,12 +24,12 @@ const AddVehicle = ({onClose}) => {
     console.log("selected option:", option);
   };
   return (
-    <form className="w-full grid md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
-      <div className="md:col-span-12 relative bg-[#f9f9f9] rounded[5px] relative shadow-md">
+    <form className="w-full grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8">
+      <div className="md:col-span-12 relative bg-[#f9f9f9] rounded[5px] shadow-md">
         <img
           src={imgSrc || profile}
           alt="profile"
-          className="w-full h-[300px] object-cover rounded-md"
+          className="w-full sm:w-[400px] h-[300px] mx-auto object-cover rounded-md"
         />
         <UploadImage onChange={imgSrcHandler} />
       </div>
@@ -69,13 +69,19 @@ const AddVehicle = ({onClose}) => {
       <div className="md:col-span-12">
         <div className="flex items-center justify-end gap-2">
           <Button
+            type="button"
             text="Cancel"
             color="#111111b3"
             bg="#76767640"
             width="w-[150px]"
             onClick={onClose}
           />
-          <Button type='submit' text="Add" width="w-[150px]" height="h-[60px]" />
+          <Button
+            type="submit"
+            text="Add"
+            width="w-[150px]"
+            height="h-[50px] sm:h-[60px]"
+          />
         </div>
       </div>
     </form>

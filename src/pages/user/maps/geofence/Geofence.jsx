@@ -1,29 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../../../../components/shared/title/Title";
 import {
-  FeatureGroup,
   MapContainer,
   Marker,
   Popup,
   TileLayer,
 } from "react-leaflet";
-import { EditControl } from "react-leaflet-draw";
 import AddIcon from "../../../../assets/svgs/AddIcon";
 import DeleteIcon from "../../../../assets/svgs/DeleteIcon";
 import GeofencingList from "./GeofencingList";
+import Modal from "../../../../components/modals/Modal";
+import AddGeofence from "./AddGeofence";
+import EditGeofence from "./EditGeofence";
 
 const Geofence = () => {
+  const [modal, setModal] = useState(false);
   const position = [25.276987, 55.296249];
+
+  const modalOpenHandler = type => setModal(type);
+  const modalCloseHandler = () => setModal(false);
+
   return (
     <>
       <div className="bg-white rounded-[15px] p-4 lg:p-6">
         <div>
-          <Title title="Map" />
+          <Title title="Geofence" />
         </div>
-        <div className="mt-5 md:mt-8">
+        <div className="mt-5 md:mt-8"> 
           <MapContainer
             center={position}
             zoom={6}
+            scrollWheelZoom={false}
             style={{
               height: "480px",
               width: "100%",
@@ -32,19 +39,6 @@ const Geofence = () => {
             }}
             attributionControl={false}
           >
-            <FeatureGroup>
-              <EditControl
-                position="topright"
-                draw={{
-                  polygon: true,
-                  rectangle: false,
-                  circle: false,
-                  polyline: false,
-                  marker: false,
-                  circlemarker: false,
-                }}
-              />
-            </FeatureGroup>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -69,11 +63,21 @@ const Geofence = () => {
             </div>
             <div className="cursor-pointer">
               <DeleteIcon />
-            </div>
+            </div> 
           </div>
         </div>
-        <GeofencingList />
+        <GeofencingList modalOpenHandler={modalOpenHandler} />
       </div>
+      {modal === 'add' && (
+        <Modal title='Add Geofence Detail' onClose={modalCloseHandler}>
+          <AddGeofence onClose={modalCloseHandler} />
+        </Modal>
+      )}
+      {modal === 'edit' && (
+        <Modal title='Edit Geofence Detail' onClose={modalCloseHandler}>
+          <EditGeofence onClose={modalCloseHandler} />
+        </Modal>
+      )}
     </>
   );
 };

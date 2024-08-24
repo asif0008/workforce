@@ -9,8 +9,9 @@ import { sensorData } from "../../../data/data";
 import AddSensor from "./AddSensor";
 import EditSensor from "./EditSensor";
 import ToggleButton from "../../../components/shared/toggle/ToggleButton";
+import { confirmAlert } from "react-confirm-alert";
 
-const columns = (modalOpenHandler, sensorStatus, statusToggleHandler) => [
+const columns = (modalOpenHandler, sensorStatus, statusToggleHandler, deleteHandler) => [
   {
     name: "Sensor Name",
     selector: (row) => row.sensorName,
@@ -54,7 +55,7 @@ const columns = (modalOpenHandler, sensorStatus, statusToggleHandler) => [
         >
           <EditIcon />
         </div>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer" onClick={() => deleteHandler()}>
           <DeleteIcon />
         </div>
       </div>
@@ -66,23 +67,38 @@ const Sensors = () => {
   const [modal, setModal] = useState(false);
   const [sensorStatus, setSensorStatus] = useState({});
 
-  const modalOpenHandler = (modalType) => {
-    setModal(modalType);
-  };
-  const modalCloseHandler = () => {
-    setModal(false);
-  };
+  const modalOpenHandler = (modalType) => setModal(modalType);
+  const modalCloseHandler = () => setModal(false);
+  
   const statusToggleHandler = (sensorId) => {
     setSensorStatus((prevState) => ({
       ...prevState,
       [sensorId]: !prevState[sensorId],
     }));
   };
+
+  const deleteHandler = () => {
+    confirmAlert({
+      title: 'Delete Sensor',
+      message: 'Are you sure, you want to delete the sensor?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            console.log("project deleted")
+          }
+        },
+        {
+          label: 'No'
+        }
+      ]
+    })
+  }
   return (
     <div className="bg-white rounded-[15px] p-4 lg:p-6 h-[calc(100vh-80px)] overflow-hidden">
       <div className="flex items-center justify-between">
         <div>
-          <Title title="Users" />
+          <Title title="Sensors" />
         </div>
         <div className="flex items-center gap-2">
           <div
@@ -98,7 +114,7 @@ const Sensors = () => {
       </div> 
       <div className="mt-5">
         <DataTable
-          columns={columns(modalOpenHandler, sensorStatus, statusToggleHandler)}
+          columns={columns(modalOpenHandler, sensorStatus, statusToggleHandler, deleteHandler)}
           data={sensorData}
           selectableRows
           selectableRowsHighlight

@@ -73,11 +73,20 @@ export const pages = [
         title: 'Sensors',
         link: '/user/sensors',
         icon: <SensorsIcon />,
-    },  
+    },
     {
         title: 'Violations',
-        link: '/user/violations',
         icon: <ViolationsIcon />,
+        subPages: [
+            {
+                title: 'Users Violation',
+                link: '/user/users-violation'
+            },
+            {
+                title: 'Vehicles Violation',
+                link: '/user/vehicles-violation'
+            },
+        ]
     },  
     {
         title: 'Score Card',

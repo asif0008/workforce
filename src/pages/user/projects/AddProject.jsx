@@ -32,7 +32,7 @@ const AddProject = () => {
       <h2 className="text[#111111] text-lg 2xl:text-[20px] font-semibold">
         Add Project
       </h2>
-      <form className="mt-4 md:mt-6 lg:mt-8 grid lg:grid-cols-12 gap-4">
+      <form className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-4">
         <div className="lg:col-span-4">
           <Input
             label="Project Name"
@@ -96,7 +96,7 @@ const AddProject = () => {
         <div className="lg:col-span-12 mt-4">
           <div className="flex items-center justify-end gap-2">
             <Button text='Cancel' color="#111111b3" bg="#76767640" width="w-[150px]" />
-            <Button text='Add' width="w-[150px]" height="h-[60px]" />
+            <Button text='Add' width="w-[150px]" height="h-[50px] sm:h-[60px]" />
           </div>
         </div>
       </form>

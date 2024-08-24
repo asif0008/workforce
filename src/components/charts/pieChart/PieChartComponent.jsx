@@ -65,12 +65,12 @@ const PieChartComponent = ({
               >
                 <div className="flex items-center">
                   <div
-                    className="w-[32px] h-[32px] rounded-[5px] mr-2"
+                    className="w-[22px] h-[22px] sm:w-[32px] sm:h-[32px] rounded-[5px] mr-2"
                     style={{ backgroundColor: entry.color }}
                   ></div>
-                  <span className="text-base font-semibold">{entry.name}</span>
+                  <span className="text-sm sm:text-base font-semibold">{entry.name}</span>
                 </div>
-                <span className="font-semibold text-[20px]">{entry.value}</span>
+                <span className="font-semibold text-base sm:text-[20px]">{entry.value}</span>
               </div>
             ))
           ) : layout === 'layout-two' ? (

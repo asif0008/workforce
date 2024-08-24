@@ -26,6 +26,7 @@ const ProjectCard = ({
               {displayImages.map((img, i) => (
                 <img
                   src={img}
+                  key={i}
                   className="w-[40px] h-[40px] rounded-full object-cover ml-[-0.5rem]"
                   alt="profile-pic"
                 />
@@ -34,16 +35,16 @@ const ProjectCard = ({
                 {extraCount}+
               </div>
             </div>
-            <div className="flex items-center gap-4 justify-between mt-4">
+            <div className="flex flex-wrap items-center gap-4 justify-between mt-4">
               <div className="flex flex-col">
                 <p className="text-sm text-[#00000099]">Start Date:</p>
-                <p className="text-[18px] font-semibold text-[#000]">
+                <p className="text-sm md:text-[18px] font-medium md:font-semibold text-[#000]">
                   {startDate}
                 </p>
               </div>
               <div className="flex flex-col">
                 <p className="text-sm text-[#00000099]">expected Due Date:</p>
-                <p className="text-[18px] font-semibold text-[#000]">
+                <p className="text-sm md:text-[18px] font-medium md:font-semibold text-[#000]">
                   {endDate}
                 </p>
               </div>

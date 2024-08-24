@@ -45,9 +45,17 @@
 .css-fbhat2-control {
     border: 0 !important;
 }
+.react-confirm-alert h1 {
+    font-weight: 600 !important;
+}
 
 @media (max-width:1279px) {
     .user-dashboard::before {
         height: 115px;
+    }
+}
+@media (max-width:576px) {
+    .user-dashboard::before {
+        height: 80px;
     }
 }

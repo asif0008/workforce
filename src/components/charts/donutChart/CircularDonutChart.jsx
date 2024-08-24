@@ -18,7 +18,7 @@ const CircularDonutChart = ({ data }) => {
         <div className="relative w-[210px] h-[210px]">
           <svg
             viewBox="0 0 120 120"
-            className="transform rotate-[-90deg] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[210px] h-[210px]"
+            className="transform rotate-[-90deg] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[210px] h-[210px] transition-all duration-500"
           >
             <circle
               className="text-[#e9ebf3]"

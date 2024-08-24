@@ -70,7 +70,7 @@ const EditSensor = ({ onClose }) => {
             width="w-[150px]"
             onClick={onClose}
           />
-          <Button text="Add" width="w-[150px]" height="h-[60px]" />
+          <Button text="Add" width="w-[150px]" height="h-[50px] sm:h-[60px]" />
         </div>
       </div>
     </form>

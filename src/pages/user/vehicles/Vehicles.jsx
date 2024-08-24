@@ -10,8 +10,9 @@ import EditIcon from '../../../assets/svgs/EditIcon'
 import EditVehicle from './EditVehicle'
 import { vehiclesData } from '../../../data/data'
 import { useNavigate } from 'react-router-dom'
+import { confirmAlert } from 'react-confirm-alert'
 
-const columns = (modalOpenHandler, navigate) => [
+const columns = (modalOpenHandler, navigate, deleteHandler) => [
   {
     name: 'Vehicle name',
     selector: (row) => row.vehicleName
@@ -42,7 +43,7 @@ const columns = (modalOpenHandler, navigate) => [
         <div className="cursor-pointer" onClick={() => modalOpenHandler('edit')}>
           <EditIcon />
         </div>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer" onClick={() => deleteHandler()}>
           <DeleteIcon />
         </div>
       </div>
@@ -54,12 +55,27 @@ const Vehicles = () => {
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
   
-  const modalOpenHandler = (modalType) => {
-    setModal(modalType)
+  const modalOpenHandler = (modalType) => setModal(modalType)
+  const modalCloseHandler = () => setModal(false)
+
+  const deleteHandler = () => {
+    confirmAlert({
+      title: 'Delete Vehicle',
+      message: 'Are you sure, you want to delete the vehicle?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            console.log("project deleted")
+          }
+        },
+        {
+          label: 'No'
+        }
+      ]
+    })
   }
-  const modalCloseHandler = () => {
-    setModal(false)
-  }
+  
   return (
     <div className="bg-white rounded-[15px] p-4 lg:p-6 h-[calc(100vh-80px)] overflow-hidden">
       <div className="flex items-center justify-between">
@@ -77,7 +93,7 @@ const Vehicles = () => {
       </div>
       <div className="mt-5">
         <DataTable
-          columns={columns(modalOpenHandler, navigate)}
+          columns={columns(modalOpenHandler, navigate, deleteHandler)}
           data={vehiclesData}
           selectableRows
           selectableRowsHighlight

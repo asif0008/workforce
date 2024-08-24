@@ -3,7 +3,6 @@ import logo from "../../../assets/images/logo/logo.png";
 import { pages } from "./pages";
 import ChevronIcon from "../../../assets/svgs/pagesIcons/ChevronIcon";
 import { Link, useLocation } from "react-router-dom";
-import LogoutIcon from "../../../assets/svgs/pagesIcons/LogoutIcon";
 
 const Aside = () => {
   const [subPagesIsActive, setSubPagesIsActive] = useState("");
@@ -28,11 +27,11 @@ const Aside = () => {
 
   return (
     <nav className="w-[250px] sm:w-[300px] bg-primary rounded-[16px] p-4 md:p-6 nav h-full overflow-y-scroll">
-      <div className="flex flex-col justify-between h-[93vh] nav overflow-y-scroll">
+      <div className="flex flex-col nav overflow-y-scroll">
         <div>
           <div className="flex items-center justify-center gap-2">
-            <img src={logo} alt="logo" className="w-[50px]" />
-            <h2 className="text-lg font-semibold text-white">Workforce Ease</h2>
+            <img src={logo} alt="logo" className="w-[35px] sm:w-[50px]" />
+            <h2 className="text-base sm:text-lg font-semibold text-white">Workforce Ease</h2>
           </div>
           <div className="flex justify-center py-6 w-full">
             <div className="flex flex-col">
@@ -48,7 +47,7 @@ const Aside = () => {
                         key={i}
                       >
                         <div> {page.icon} </div>
-                        <div className="text-white text-base text-[19px]">
+                        <div className="text-white text-base">
                           {page.title}
                         </div>
                       </Link>
@@ -59,7 +58,7 @@ const Aside = () => {
                         onClick={() => handleSubpages(page.title)}
                       >
                         <div> {page.icon} </div>
-                        <div className="text-white text-base text-[19px]">
+                        <div className="text-white text-base">
                           {page.title}
                         </div>
                         <div
@@ -92,7 +91,7 @@ const Aside = () => {
                             }`}
                           >
                             <div className="w-[5px] h-[5px] rounded-full block bg-white"></div>
-                            <div className="text-white text-base">
+                            <div className="text-white text-sm sm:text-base">
                               {subPage.title}
                             </div>
                           </Link>
@@ -105,10 +104,6 @@ const Aside = () => {
             </div>
           </div>
         </div>
-        <button className="bg-[#f9d8d5] w-full flex items-center justify-center py-4 gap-1 h-[50px] text-[#000] text-base md:text-[20px] rounded-[16px]">
-          <LogoutIcon />
-          logout
-        </button>
       </div>
     </nav>
   );

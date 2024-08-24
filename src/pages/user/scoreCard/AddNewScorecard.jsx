@@ -57,7 +57,7 @@ export default AddNewScorecard;
 
 const Label = ({ label }) => {
   return (
-    <label className={`text-[#000] text-base mb-2 block font-semibold`}>
+    <label className={`text-[#000] text-sm sm:text-base mb-2 block font-semibold`}>
       {label}
     </label>
   );
